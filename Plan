@@ -1,0 +1,57 @@
+Project: loginhist 
+
+Purpose: To be able to see when a user's last login was, and to see which logins occurred on a given date.
+
+Outline:
+	lastlogin takes a username and optional wtmp file
+    as input and returns the last occurance of a login
+    event with that username. 
+
+    whodate takes a date and optional wtmp file and
+    returns all login events for that date. 
+
+Output:
+	The output to both lastlogin and whodate should
+    be identical in structure to the output of the 
+    'who' command, though the date format may vary
+    from that of 'who' based on which platform. 
+
+Arguments:
+	lastlogin accepts a username and an optional 
+    filename, specified by -f. E.g., 
+        ./lastlogin -f my_wtmp_file bobjones
+        ./lastlogin bobjones
+
+    whodate accepts a date as yyyy mm dd and 
+    optional filename, E.g.
+        ./whodate 2014 02 14
+        ./whodate 2014 02 14 -f my_wtmp_file
+
+Input:
+    lastlogin and whodate both only accept an 
+    optional input file as input. Both default to
+    the system's wtmp file (defined in utmp.h) if
+    no file is specified by the user. 
+
+Data Structures:
+    To minimize system calls, the entire wtmp 
+    file is read into an array of utmp structs
+    in a single operation. 
+
+    Since the lastlogin only performs a single 
+    lookup operation, using a data structure 
+    (such as a hash-table keyed on username)
+    would take more time to construct than it
+    would to simply return the last login as
+    it is discovered. 
+
+    whodate similarly wouldn't benefit from 
+    structuring as a tree or hash table, since
+    both would take at least linear time to build,
+    by which time we could have returned all of
+    the records. 
+
+Files:
+    lastlogin and whodate read a list of wtmp 
+    records from WTMP_FILE (specified in
+    utmp.h).

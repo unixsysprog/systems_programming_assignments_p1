@@ -1,0 +1,123 @@
+Script started on Sun 15 Feb 2015 03:10:05 AM EST
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ make clean
+rm -f *.o core dumputmp whodate lastlogin who2 who3
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ make lastlogin
+cc -c -Wall utils.c
+cc -c -Wall wtmp_utils.c
+cc -Wall lastlogin.c utils.o wtmp_utils.o -o lastlogin
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./lastlogin
+Usage: lastlogin [-f filename] username
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./lastlogin cfuentes
+cfuentes pts/1        2015-02-15 02:39 (c-24-128-100-220.hsd1.nh.comcast.net)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./lastlogin -f s[Kwtmp.
+wtmp.big     wtmp.sample  
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./lastlogin -f wtmp.big ella
+ella     pts/107      2015-02-05 22:45 (10.49.39.103)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./lastlogin ell [Ka -f wtmp.big
+ella     pts/107      2015-02-05 22:45 (10.49.39.103)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ##[K[Kwho[K[K[K##ok, now for whodate
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ make whodate
+cc -Wall whodate.c  utils.o  wtmp_utils.o -o whodate
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./whodate
+Usage: lastlogin [-f filename] yyyy mm dd
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./h[Kwhodate 2015 02 14[K5
+sharonwouda pts/0        2015-02-15 00:34 (1-64-167-220.static.netvigator.com)
+keesan   pts/1        2015-02-15 00:40 (ice4.fas.harvard.edu)
+cfuentes pts/1        2015-02-15 02:39 (c-24-128-100-220.hsd1.nh.comcast.net)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./whodate 2015 02 15 -f[K[K[K[K[K06
+lib215   pts/0        2015-02-06 04:11 (ice2.fas.harvard.edu)
+molay    pts/1        2015-02-06 04:12 (ice2.fas.harvard.edu)
+schiebel pts/0        2015-02-06 09:30 (ice2.fas.harvard.edu)
+libe295  pts/0        2015-02-06 11:03 (66.92.86.168)
+andrewmayo pts/0        2015-02-06 14:18 (nwl-b127-m07.fas.harvard.edu)
+danielchen pts/1        2015-02-06 14:18 (nwl-b127-m02.fas.harvard.edu)
+berger   pts/2        2015-02-06 14:18 (65.112.10.104)
+andrewmayo pts/0        2015-02-06 14:19 (nwl-b127-m07.fas.harvard.edu)
+esantelmann pts/3        2015-02-06 14:26 (nwl-b127-m17.fas.harvard.edu)
+francescachilds pts/4        2015-02-06 14:30 (nwl-b127-m18.fas.harvard.edu)
+bricenorton pts/5        2015-02-06 14:42 (dhcp-140-247-170-229.fas.harvard.edu)
+andrewmayo pts/0        2015-02-06 15:15 (nwl-b127-m07.fas.harvard.edu)
+danielchen pts/1        2015-02-06 15:34 (nwl-b127-m02.fas.harvard.edu)
+manishgoyal pts/6        2015-02-06 15:34 (static-11-191-147-69.axsne.net)
+manishgoyal pts/4        2015-02-06 16:14 (static-11-191-147-69.axsne.net)
+bnash    pts/0        2015-02-06 17:45 (50-200-93-68-static.hfc.comcastbusiness.net)
+luanjiang pts/0        2015-02-06 18:30 (162-199-20-185.lightspeed.hstntx.sbcglobal.net)
+erinpurington pts/0        2015-02-06 21:35 (cpe-69-207-93-137.rochester.res.rr.com)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./whodate 2015 02 06 -b[Kf s[Kwtmp.big
+rosalie  pts/74       2015-02-06 00:00 (10.29.32.92)
+rose     pts/52       2015-02-06 00:04 (10.106.43.99)
+prince   pts/53       2015-02-06 00:04 (10.36.61.105)
+ollie    pts/14       2015-02-06 00:08 (10.168.53.93)
+lucia    pts/25       2015-02-06 00:09 (10.112.35.102)
+foster   pts/34       2015-02-06 00:10 (10.21.61.108)
+general  pts/41       2015-02-06 00:12 (10.35.36.99)
+general  pts/44       2015-02-06 00:12 (10.186.33.100)
+alma     pts/47       2015-02-06 00:16 (10.161.62.96)
+leora    pts/51       2015-02-06 00:17 (10.21.55.108)
+lettie   pts/59       2015-02-06 00:17 (10.49.63.105)
+lester   pts/60       2015-02-06 00:18 (10.64.43.105)
+ernestin pts/18       2015-02-06 00:19 (10.151.44.103)
+samuel   pts/25       2015-02-06 00:19 (10.27.42.101)
+anita    pts/34       2015-02-06 00:20 (10.132.63.107)
+foster   pts/71       2015-02-06 00:21 (10.45.33.90)
+raymond  pts/78       2015-02-06 00:22 (10.128.50.108)
+inez     pts/79       2015-02-06 00:23 (10.87.25.99)
+nannie   pts/68       2015-02-06 00:24 (10.152.26.109)
+ernestin pts/13       2015-02-06 00:32 (10.92.45.104)
+lessie   pts/15       2015-02-06 00:33 (10.100.28.93)
+raymond  pts/18       2015-02-06 00:38 (10.238.63.96)
+enoch    pts/45       2015-02-06 00:40 (10.176.62.109)
+blanche  pts/46       2015-02-06 00:44 (10.160.43.98)
+jose     pts/63       2015-02-06 00:45 (10.173.50.101)
+blanche  pts/4        2015-02-06 00:46 (10.151.53.95)
+susanna  pts/68       2015-02-06 00:47 (10.227.21.108)
+judson   pts/15       2015-02-06 00:47 (10.149.42.106)
+effie    pts/60       2015-02-06 00:47 (10.45.47.90)
+pat      pts/62       2015-02-06 00:48 (10.9.51.103)
+susanna  pts/68       2015-02-06 00:49 (10.204.49.98)
+adolph   pts/71       2015-02-06 00:51 (10.24.69.90)
+effie    pts/60       2015-02-06 00:52 (10.74.49.95)
+ernestin pts/13       2015-02-06 00:53 (10.87.55.100)
+adolph   pts/61       2015-02-06 00:56 (10.204.66.108)
+judson   pts/15       2015-02-06 00:57 (10.105.25.97)
+gussie   pts/13       2015-02-06 00:59 (10.179.52.94)
+russell  pts/59       2015-02-06 00:59 (10.126.56.107)
+lucretia pts/22       2015-02-06 01:00 (10.199.43.92)
+jonathan pts/59       2015-02-06 01:00 (10.108.35.99)
+eloise   pts/64       2015-02-06 01:01 (10.133.61.102)
+raleigh  pts/77       2015-02-06 01:01 (10.236.61.106)
+alvin    pts/7        2015-02-06 01:02 (10.43.57.98)
+general  pts/13       2015-02-06 01:05 (10.143.46.104)
+ora      pts/12       2015-02-06 01:07 (10.28.58.100)
+irwin    pts/26       2015-02-06 01:09 (10.239.20.103)
+austin   pts/4        2015-02-06 01:14 (10.176.24.101)
+dwight   pts/28       2015-02-06 01:24 (10.213.33.94)
+thurman  pts/34       2015-02-06 01:27 (10.131.62.104)
+irwin    pts/38       2015-02-06 01:31 (10.180.29.95)
+edith    pts/45       2015-02-06 01:31 (10.201.32.108)
+thurman  pts/45       2015-02-06 01:39 (10.124.63.109)
+douglas  pts/46       2015-02-06 01:39 (10.217.66.106)
+leora    pts/47       2015-02-06 01:39 (10.8.68.92)
+dee      pts/3        2015-02-06 01:53 (10.144.54.108)
+flossie  pts/12       2015-02-06 01:54 (10.174.30.103)
+almeda   pts/32       2015-02-06 01:54 (10.67.20.107)
+claude   pts/34       2015-02-06 01:54 (10.23.57.92)
+thurman  pts/34       2015-02-06 01:56 (10.121.42.99)
+roy      pts/53       2015-02-06 02:02 (10.162.68.99)
+almeda   pts/32       2015-02-06 02:06 (10.34.36.106)
+jeannett pts/20       2015-02-06 02:27 (10.89.31.91)
+jonathan pts/28       2015-02-06 02:32 (10.85.33.104)
+ollie    pts/14       2015-02-06 02:37 (10.15.36.94)
+minnie   pts/25       2015-02-06 02:37 (10.65.39.94)
+fay      pts/28       2015-02-06 02:43 (10.163.40.108)
+marcus   pts/32       2015-02-06 02:46 (10.157.37.95)
+leora    pts/3        2015-02-06 03:10 (10.174.36.105)
+abner    pts/4        2015-02-06 03:20 (10.128.31.104)
+van      pts/4        2015-02-06 04:13 (10.95.36.103)
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ./whodate 2015 02 06 -f wtmp.big[K[K[K[K[K[K[K[K[K[K[K[K[1@ [1@-[1@f[C[1@ [1@w[1@t[1@m[1@p[1@.[1@s[1@a[1@m[1@p[1@l[1@e
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ##ok, done. 
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ ##I think the command is 'exit'?
+cfuentes@ice1:~/CSCI-E28/pset1/loginhist$ exit
+exit
+
+Script done on Sun 15 Feb 2015 03:12:40 AM EST

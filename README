@@ -1,0 +1,32 @@
+loginhist by 
+	Christopher Fuentes
+	cfuentes@g.harvard.edu
+	HUID 60857326
+
+Common functions between whodate and lastlogin 
+were abstacted into utils.c and wtmp_utils.c. 
+
+utils.c contains a method for parsing flag/value 
+arguments (which both programs need to be able
+to do) and for a basic assertion function. 
+
+wtmp_utils.c contains functions for opening, reading, 
+and closing wtmp files, as well as printing wtmp
+structs to standard output. This file is largely 
+modified from who3.c and utmplib.c, optimized to
+calculate the wtmp filesize using lseek and then
+read the entire file into a buffer during a single
+operation. 
+
+For lastlogin, this is a guaranteed 
+optimization since every record must be examined 
+in order to be conclusive. For whodate, this may
+read more data than necessary but at the tradeoff of 
+less system calls. 
+
+Known issues:
+	whodate must be given a date of the form 
+	yyyy mm dd, else it will mismatch the record
+	date formats. E.g., 
+		2015 01 01 	will work
+		2015 1  1 	will not
